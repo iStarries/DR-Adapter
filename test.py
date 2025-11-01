@@ -30,12 +30,12 @@ def parse_args():
                         help='number of support pairs')
     parser.add_argument('--benchmark',
                         type=str,
-                        default='fss',
+                        default='lung',
                         choices=['fss','deepglobe','lung','isic'],
                         help='The benchmark to be tested')
     parser.add_argument('--test_datapath',
                         type=str,
-                        default='./data/fss',
+                        default='../data',
                         help='The path to the benchmark dataset')
     parser.add_argument('--checkpoint_path',
                         type=str,
@@ -80,7 +80,7 @@ def main(args):
     Logger.initialize()
     FSSDataset.initialize(img_size=400, datapath=args.test_datapath)
     dataloader_test = FSSDataset.build_dataloader(args.benchmark, 1, 0, 'test', args.nshot)
-
+    Logger.info(f"Benchmark: {args.benchmark} | Data root: {args.test_datapath}")
     Logger.info(f'     ==> {len(dataloader_test)} testing samples')
     dim_ls = [128, 256, 512]
     model = SSP_MatchingNet(args.backbone,dim_ls)

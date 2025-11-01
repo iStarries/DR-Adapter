@@ -89,7 +89,7 @@ class Logger:
 
         cls.logpath = './'
 
-        logging.basicConfig(filemode='w',
+        logging.basicConfig(filemode='a',
                             filename=os.path.join(cls.logpath, 'log.txt'),
                             level=logging.INFO,
                             format='%(message)s',

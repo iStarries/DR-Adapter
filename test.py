@@ -79,7 +79,7 @@ def test(model, dataloader, nshot):
 def main(args):
     Logger.initialize()
     FSSDataset.initialize(img_size=400, datapath=args.test_datapath)
-    dataloader_test = FSSDataset.build_dataloader(args.benchmark, 1, 0, 'test', args.nshot)
+    dataloader_test = FSSDataset.build_dataloader(args.benchmark, 30, 8, 'test', args.nshot)
     Logger.info(f"Benchmark: {args.benchmark} | Data root: {args.test_datapath}")
     Logger.info(f'     ==> {len(dataloader_test)} testing samples')
     dim_ls = [128, 256, 512]

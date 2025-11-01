@@ -1,0 +1,3 @@
+test:
+  datapath: ./data
+  load_model_path: ./outdir/models/pascal/best_model.pth
